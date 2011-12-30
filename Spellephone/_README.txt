@@ -38,9 +38,9 @@ Implementation notes
 Testing notes
   * Three const boolean variables are set to false, but can be set to true in order to enable functionality
     that might be helpful in debugging.
-      - doDumpLoadedWords_Debug.	Writes to the Output window a list of all words loaded from a word file.
-      - doDumpTree_Debug.			Writes to the Output window the contents of the WordTree.
-      - doLoadTestWords_Debug.		Loads a small file of test words, instead of a full-sized word list.
+      - doDumpLoadedWords_Debug.	When true, a list of the words loaded from a word file are written to the Output window .
+      - doDumpTree_Debug.			When true, the contents of the WordTree are written to the Output window.
+      - doLoadTestWords_Debug.		When true, a small test file of words is used instead of a full-sized word list.
   * There are several other debugging statements in the code that are currently commented out.  For example,
     there is one that writes to the Output window an indexed list of the words in the tree that use a 
 	subset of the digits in the phone number entered.

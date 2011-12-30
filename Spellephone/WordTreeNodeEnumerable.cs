@@ -8,6 +8,11 @@ using System.Collections;
 
 namespace Spellephone
 {
+    /// <summary>
+    ///      Associates a series of digits with a WordTree, and supports the creation
+    ///      of an iterator that traverses the WordTree, following WordTreeNodes that
+    ///      correspond to the digits provided.
+    /// </summary>
     class WordTreeNodeEnumerable : IEnumerable<WordTreeNode>
     {
         public WordTreeNodeEnumerable(WordTree tree, IEnumerable<byte> digits)

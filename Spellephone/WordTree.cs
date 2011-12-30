@@ -112,6 +112,13 @@ namespace Spellephone
             }
         }
 
+        /// <summary>
+        ///     Retrieve a list of words corresponding to a given phone number.
+        /// </summary>
+        /// <param name="phoneString">The phone number to be used.  Punctuation marks are ignored.</param>
+        /// <param name="maxDigitsInResult">Maximum number of digits allowed in the words found.</param>
+        /// <param name="doUseResultsCache">Use a cache to store the results of an internal function, to prevent duplicate computation.</param>
+        /// <returns></returns>
         public IEnumerable<string> GetAlphanumericWords(
             string phoneString,
             int maxDigitsInResult = int.MaxValue,
@@ -160,9 +167,17 @@ namespace Spellephone
         #endregion // Public instance fields/properties/methods
 
         #region Private instance methods
-        /// <param name="wordsByLength">
-        ///     Dictionary<Bounds, List<string>> = List of dictionary words that exactly match digitString[i..j].
-        /// </param>
+        /// <summary>
+        ///     Recursive method to find the list of words spellable by a given phone number (represented by an array of digits)
+        /// </summary>
+        /// <param name="alphaWordsDict">Indexed list of dictionary words formed by substrings of the digits given</param>
+        /// <param name="digits">Digits of the phone number entered by the user</param>
+        /// <param name="begin">Index of the list of phone number digits where searching begins.  Increased on recursive calls to this method</param>
+        /// <param name="resultsCache">
+        ///     Cache of method results by "begin" parameter.
+        ///     Shared between recursive calls to this method.
+        ///     Should not be shared between top-level calls to this method.</param>
+        /// <returns></returns>
         private List<string> getAlphanumericWordsImpl(
             Dictionary<WordTree.Bounds, List<string>> alphaWordsDict,
             byte[] digits,
@@ -236,7 +251,14 @@ namespace Spellephone
             return result;
         }
 
-        private void getAlphaWordsDict(IEnumerable<byte> digits,
+        /// <summary>
+        ///     Populate a data structore with words spellable by subsets of a given digit string.
+        ///     The words are indexed by the locations of their first and last characters.
+        /// </summary>
+        /// <param name="digits">Digits corresponding to the phone number entered</param>
+        /// <param name="alphaWordsDict">Data structure to be populated</param>
+        private void getAlphaWordsDict(
+            IEnumerable<byte> digits,
             out Dictionary<WordTree.Bounds, List<string>> alphaWordsDict
             )
         {

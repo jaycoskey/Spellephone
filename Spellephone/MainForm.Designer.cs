@@ -58,6 +58,7 @@ namespace Spellephone
             // 
             // phoneNumberLabel
             // 
+            this.phoneNumberLabel.AccessibleDescription = "Enter a phone number here.  Extra punctuation (e.g., parentheses) and spaces are allowed";
             this.phoneNumberLabel.AutoSize = true;
             this.phoneNumberLabel.Location = new System.Drawing.Point(12, 12);
             this.phoneNumberLabel.Name = "phoneNumberLabel";
@@ -88,6 +89,7 @@ namespace Spellephone
             // phoneNumberButton
             // 
             this.phoneNumberButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.phoneNumberButton.Enabled = false;
             this.phoneNumberButton.Location = new System.Drawing.Point(300, 7);
             this.phoneNumberButton.Name = "phoneNumberButton";
             this.phoneNumberButton.Size = new System.Drawing.Size(75, 23);
@@ -106,6 +108,7 @@ namespace Spellephone
             // 
             // maxDigitsLabel
             // 
+            this.maxDigitsLabel.AccessibleDescription = "Maximum number of digits allowed in each alphanumeric word in the result list.";
             this.maxDigitsLabel.AutoSize = true;
             this.maxDigitsLabel.Location = new System.Drawing.Point(12, 38);
             this.maxDigitsLabel.Name = "maxDigitsLabel";
@@ -127,6 +130,8 @@ namespace Spellephone
             // 
             // cacheUsageLabel
             // 
+            this.cacheUsageLabel.AccessibleDescription = "Selecting this checkbox allows the program to reduce computations by using additi" +
+    "onal memory storage.";
             this.cacheUsageLabel.AutoSize = true;
             this.cacheUsageLabel.Location = new System.Drawing.Point(12, 65);
             this.cacheUsageLabel.Name = "cacheUsageLabel";
